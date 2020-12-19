@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id = "@+id/tab_map"
+        android:enabled = "true"
+        android:icon = "@drawable/ic_loc"
+        android:title = "지도 보기"/>
+
+    <item
+        android:id = "@+id/tab_tracking"
+        android:enabled = "true"
+        android:icon = "@drawable/ic_tracking"
+        android:title = "동선 보기"/>
+</menu>

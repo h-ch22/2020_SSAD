@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#2e2e2e"
+    tools:context=".fragment.Fragment_tracking">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart = "20dp"
+        android:layout_marginEnd = "20dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text = "먼저 원하는 날짜 및 시간을\n선택하세요."
+            android:textSize = "30sp"
+            android:textColor = "#ffffff"
+            android:fontFamily="@font/nanumsquare_bold"
+            android:layout_marginTop = "?attr/actionBarSize"
+            android:gravity="center"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop = "40dp"
+            android:layout_marginStart = "40dp"
+            android:text = "날짜"
+            android:textSize = "25sp"
+            android:fontFamily="@font/nanumsquare_regular"
+            android:textColor = "#ffffff"/>
+
+        <Button
+            android:id="@+id/btn_date"
+            android:layout_width="300dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/selector_btnround"
+            android:fontFamily="@font/nanumsquare_exbold"
+            android:text="0000-00-00 이후"
+            android:textColor = "#ffffff"
+            android:textSize="20sp" />
+
+        <CheckBox
+            android:id = "@+id/checkbox_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop = "20dp"
+            android:buttonTint="#FFC557"
+            android:text = "전체 보기"
+            android:textColor = "#ffffff"
+            android:fontFamily="@font/nanumsquare_bold"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop = "40dp"
+            android:layout_marginStart = "40dp"
+            android:text = "시간대"
+            android:textSize = "25sp"
+            android:fontFamily="@font/nanumsquare_regular"
+            android:textColor = "#ffffff"/>
+
+        <Button
+            android:id="@+id/btn_time"
+            android:layout_width="300dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/selector_btnround"
+            android:fontFamily="@font/nanumsquare_exbold"
+            android:text="00 : 00 이후"
+            android:textColor = "#ffffff"
+            android:textSize="20sp" />
+
+        <CheckBox
+            android:id = "@+id/checkbox_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop = "20dp"
+            android:text = "전체 보기"
+            android:buttonTint="#FFC557"
+            android:textColor = "#ffffff"
+            android:fontFamily="@font/nanumsquare_bold"/>
+
+        <Button
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:id = "@+id/btn_next"
+            android:layout_gravity="center"
+            android:layout_marginTop = "20dp"
+            android:text = "다음"
+            android:textColor = "#ffffff"
+            android:fontFamily="@font/nanumsquare_bold"
+            android:background="@drawable/btn_next"
+            android:drawableEnd="@drawable/ic_next"
+            android:paddingEnd="20dp"/>
+
+    </LinearLayout>
+
+</LinearLayout>
