@@ -2,6 +2,7 @@ package kr.ac.jbnu.se.ssad_group6.fragment;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
@@ -18,6 +19,7 @@ import android.widget.TimePicker;
 import java.util.Calendar;
 
 import kr.ac.jbnu.se.ssad_group6.R;
+import kr.ac.jbnu.se.ssad_group6.listView.UserListActivity;
 
 public class Fragment_tracking extends Fragment {
     private final Calendar calendar = Calendar.getInstance();
@@ -27,6 +29,8 @@ public class Fragment_tracking extends Fragment {
     private int month = calendar.get(Calendar.MONTH);
     private int dayofMonth = calendar.get(Calendar.DAY_OF_MONTH);
 
+    private String sendDateDataString = "";
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -35,22 +39,7 @@ public class Fragment_tracking extends Fragment {
 
         Button btn_date = view.findViewById(R.id.btn_date);
         Button btn_time = view.findViewById(R.id.btn_time);
-        CheckBox check_date = view.findViewById(R.id.checkbox_date);
-        CheckBox check_time = view.findViewById(R.id.checkbox_time);
-
-        check_date.setOnClickListener(new CheckBox.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                btn_date.setText("전체 보기");
-            }
-        });
-
-        check_time.setOnClickListener(new CheckBox.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                btn_time.setText("전체 보기");
-            }
-        });
+        Button btn_next = view.findViewById(R.id.btn_next);
 
         btn_date.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,7 +54,7 @@ public class Fragment_tracking extends Fragment {
                         calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
 
                         btn_date.setText(year + " - " + month + " - " + dayOfMonth + " 이후");
-                        check_date.setChecked(false);
+                        sendDateDataString = (year + "," + month + "," + dayOfMonth);
                     }
                 }, year, month, dayofMonth);
 
@@ -83,11 +72,20 @@ public class Fragment_tracking extends Fragment {
                     @Override
                     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
                         btn_time.setText(hourOfDay + " : " + minute + " 이후");
-                        check_time.setChecked(false);
+                        sendDateDataString = (sendDateDataString + "," + hourOfDay + "," + minute);
                     }
                 }, hour, minute, android.text.format.DateFormat.is24HourFormat(getContext()));
 
                 timePickerDialog.show();
+            }
+        });
+
+        btn_next.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), UserListActivity.class) ;
+                intent.putExtra("intentDate", sendDateDataString);
+                startActivity(intent);
             }
         });
 
